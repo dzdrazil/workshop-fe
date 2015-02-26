@@ -9,7 +9,7 @@ let Route = Router.Route;
 let DefaultRoute = Router.DefaultRoute;
 
 // SERVICES
-import IdentityService from 'services/IdentityService';
+import {CurrentIdentity} from 'services/IdentityService';
 
 // UI COMPONENTS
 import UserProfile from 'ui/UserProfile';
@@ -20,7 +20,7 @@ import Login from 'ui/Login';
 var App = React.createClass({
 	mixins: [Router.State, Router.Navigation],
 	componentWillMount: function() {
-		IdentityService.identity
+		CurrentIdentity
 			.onValue(
 				id => {
 					if (!id) this.transitionTo('login');

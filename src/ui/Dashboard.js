@@ -11,14 +11,14 @@ export default React.createClass({
 
 	onSubmitCreateProject(e) {
 		e.preventDefault();
-		let name = this.refs.newName.value;
-		let description = this.refs.newDesc.value;
+		let name = this.refs.newName.getDOMNode().value;
+		let description = this.refs.newDesc.getDOMNode().value;
 
 		CreateProjectSink
 			.emit({name, description});
 
-		this.refs.newName.value = '';
-		this.refs.newValue.value = '';
+		this.refs.newName.getDOMNode().value = '';
+		this.refs.newDesc.getDOMNode().value = '';
 	},
 
 	componentDidMount() {
